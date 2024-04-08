@@ -1,0 +1,506 @@
+{
+	"info": {
+		"_postman_id": "ec6a30bd-7aab-43a8-9371-c666bd1518eb",
+		"name": "Lojinha Virtual",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18688578",
+		"_collection_link": "https://speeding-desert-431275.postman.co/workspace/EBAC~0c26734f-82d2-4e76-ba51-699f8e70cb98/collection/18688578-ec6a30bd-7aab-43a8-9371-c666bd1518eb?action=share&source=collection_link&creator=18688578"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Login realizado com sucesso!\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"const resposta = pm.response.json();",
+							"pm.globals.set(\"token\", resposta.authorization);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\n{\n \"email\": \"itit@gmail.com\",\n \"password\":\"teste\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Lojinha}}login",
+					"host": [
+						"{{Lojinha}}login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar usuário",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Usuário cadastrado\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Iml0bmFAc2FmZS5zcGFjZSIsInBhc3N3b3JkIjoidGVzdGUiLCJpYXQiOjE2Njg4MDcwODMsImV4cCI6MTY2ODgwNzY4M30.qqLKO8mcQK06aHwu1oih5uGyl3H7y5Y_sAURC7B1krk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nome\": \"It Santana\",\n  \"email\": \"itit@gmail.com\",\n  \"password\": \"teste\",\n  \"administrador\": \"true\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/usuarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Usuários Cadastrados",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Usuários listados\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/usuarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Usuários por ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/usuarios/Ui69cS0RlwXbmgx7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"usuarios",
+						"Ui69cS0RlwXbmgx7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar usuários",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{Lojinha}}usuarios/0uxuPY0cbmQhpEz1",
+					"host": [
+						"{{Lojinha}}usuarios"
+					],
+					"path": [
+						"0uxuPY0cbmQhpEz1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar produtos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Cadastro de produtos novos\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Iml0aXRAZ21haWwuY29tIiwicGFzc3dvcmQiOiJ0ZXN0ZSIsImlhdCI6MTcxMjQ0ODA3MSwiZXhwIjoxNzEyNDQ4NjcxfQ.x73OvwOFY3asrnEhbqn_lleQB-IykZjAMmrkPpgxR9Y",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Iml0bmFAc2FmZS5zcGFjZSIsInBhc3N3b3JkIjoidGVzdGUiLCJpYXQiOjE2Njg3MzE2MjYsImV4cCI6MTY2ODczMjIyNn0.xaAv-3J8VTX2ddVsqgg67UrernxQtOZljEfktFGvzvU",
+						"description": "token itnã",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nome\": \"iphone 12 PRO MAX\",\n  \"preco\": 7900,\n  \"descricao\": \"iphone\",\n  \"quantidade\": 150\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/produtos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"produtos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar produtos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Busca de produtos concluída\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Iml0bmFAc2FmZS5zcGFjZSIsInBhc3N3b3JkIjoidGVzdGUiLCJpYXQiOjE2Njg4MDcwODMsImV4cCI6MTY2ODgwNzY4M30.qqLKO8mcQK06aHwu1oih5uGyl3H7y5Y_sAURC7B1krk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Ui69cS0RlwXbmgx7",
+						"description": "token itnã",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/produtos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"produtos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar produtos por ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "Ui69cS0RlwXbmgx7",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Ui69cS0RlwXbmgx7",
+						"description": "token itnã",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{Lojinha}}produtos/lkhHnqETGc3T0d50",
+					"host": [
+						"{{Lojinha}}produtos"
+					],
+					"path": [
+						"lkhHnqETGc3T0d50"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar produtos",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Iml0aXRAZ21haWwuY29tIiwicGFzc3dvcmQiOiJ0ZXN0ZSIsImlhdCI6MTcxMjQ0ODIyMCwiZXhwIjoxNzEyNDQ4ODIwfQ.nEZmf9D4Hg7QAyxHetgtf2XKNKM7d5r4ms8RB2kV38s",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Iml0bmFAc2FmZS5zcGFjZSIsInBhc3N3b3JkIjoidGVzdGUiLCJpYXQiOjE2Njg3MzIyMjMsImV4cCI6MTY2ODczMjgyM30.YHpnB8f8PxTVjsvCiqRR8nWX5xlFptF-fYee0Ap7bDk",
+						"description": "token itnã",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nome\": \"IPHONE USADO\",\n  \"preco\": 5480,\n  \"descricao\": \"iphone\",\n  \"quantidade\": 380\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{Lojinha}}produtos/lkhHnqETGc3T0d50",
+					"host": [
+						"{{Lojinha}}produtos"
+					],
+					"path": [
+						"lkhHnqETGc3T0d50"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar produto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Usuário Excluído\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Iml0aXRAZ21haWwuY29tIiwicGFzc3dvcmQiOiJ0ZXN0ZSIsImlhdCI6MTcxMjQ0ODIyMCwiZXhwIjoxNzEyNDQ4ODIwfQ.nEZmf9D4Hg7QAyxHetgtf2XKNKM7d5r4ms8RB2kV38s",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{Lojinha}}produtos/lkhHnqETGc3T0d50",
+					"host": [
+						"{{Lojinha}}produtos"
+					],
+					"path": [
+						"lkhHnqETGc3T0d50"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "BeeJh5lz3k6kSIzA",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Carrinos cadastrados",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Usuários listados\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Lojinha}}carrinhos/qbMqntef4iTOwWfg",
+					"host": [
+						"{{Lojinha}}carrinhos"
+					],
+					"path": [
+						"qbMqntef4iTOwWfg"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar carrinho por id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Usuários listados\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/usuarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

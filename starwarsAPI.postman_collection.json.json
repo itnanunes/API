@@ -1,0 +1,84 @@
+{
+	"info": {
+		"_postman_id": "cb1fbf50-fc79-47ea-be6b-81e7ca15d3de",
+		"name": "Star wars API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18688578",
+		"_collection_link": "https://speeding-desert-431275.postman.co/workspace/EBAC~0c26734f-82d2-4e76-ba51-699f8e70cb98/collection/18688578-cb1fbf50-fc79-47ea-be6b-81e7ca15d3de?action=share&source=collection_link&creator=18688578"
+	},
+	"item": [
+		{
+			"name": "1.Luke Skywalker",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Vallidar status code\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Validar o nome do personagem\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Luke Skywalker\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{dev}}/people/1/",
+					"host": [
+						"{{dev}}"
+					],
+					"path": [
+						"people",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar personagem 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Validar status code\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Validar o nome do personagem\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"C-3PO\");",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{dev}}people/2/",
+					"host": [
+						"{{dev}}people"
+					],
+					"path": [
+						"2",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
