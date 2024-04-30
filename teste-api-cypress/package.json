@@ -1,11 +1,12 @@
 {
   "name": "teste-api-cypress",
   "version": "1.0.0",
-  "description": "Atividade de API",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
